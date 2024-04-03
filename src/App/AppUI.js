@@ -3,7 +3,6 @@ import { TodoSearch } from '../components/TodoSearch/index.js';
 import { TodoList } from '../components/TodoList/index.js';
 import { TodoItem } from '../components/TodoItem/index.js';
 import { TodosLoading } from '../components/TodosLoading/index.js';
-import { TodosError } from '../components/TodosError/index.js';
 import { EmptyTodos } from '../components/EmptyTodos/index.js';
 import { CreateTodoButton } from '../components/CreateTodoButton/index.js';
 import { TodoContext } from '../TodoContext/index.js'
@@ -15,7 +14,6 @@ import React from 'react';
 function AppUI() {
     const {
         loading,
-        error,
         searchedTodos,
         completeTodo,
         deleteTodo,
@@ -41,7 +39,6 @@ function AppUI() {
             <TodosLoading/>
             </>
         ) }
-        {error && <TodosError/>}
         {(!loading && searchedTodos.length === 0) && <EmptyTodos/>}
 
         {searchedTodos.map (todo => (
